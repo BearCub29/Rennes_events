@@ -1,0 +1,37 @@
+<html>
+<head>
+    <title>Profil de <%= current_user.first_name %></title>
+  </head>
+  <body>
+    <div class="card-header text-center">
+      <h3>Profil de <%= current_user.first_name %> <%= current_user.last_name %></h3>
+    </div>
+    </br>
+    <div class="d-flex justify-content-around text-center">
+    <div class="card " style="width: 18rem;">
+      <div class="card-body">
+        <p class="card-text">Prénom : <%= current_user.first_name %></p>
+        <p class="card-text">Nom : <%= current_user.last_name %></p>
+        <p class="card-text">Description : <%= current_user.description %></p>
+        <%= link_to"Editer Profil", edit_user_path(current_user.id) ,  class: "btn btn-dark btn-lg" %>
+        <p class="card-text">Email : <%=  current_user.email %></p>
+        <%= link_to"Editer Sécurité", edit_user_registration_path ,  class: "btn btn-dark btn-lg" %>
+        <p class="card-text">Créé le : <%= current_user.created_at %></p>
+        <p class="card-text">Modifié le : <%= current_user.updated_at %></p>
+        
+        <hr class="my-4">
+      </div>
+    </div>
+  </div>
+  </br>
+  <div class="text-center">
+  <% @events.each do |event| %>
+    <% if event.user_id == current_user.id %>
+      <li class="list-group-item"> Event : <%= event.title %></li>
+      <li class="list-group-item"> Description : <%= event.description %></li> 
+      <li class="list-group-item"> <%= link_to"Editer", edit_event_path(event.id), class: "btn btn-warning btn-lg" %></li>
+      <% end %>
+    <% end %>
+  </div>
+  </body>
+</html>

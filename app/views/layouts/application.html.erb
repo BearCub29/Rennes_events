@@ -23,7 +23,7 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Events <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="new_event_path">Events <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">New Event</a>
@@ -39,7 +39,7 @@
               Profil/Se deconnecter
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <li><%= link_to"Profil",edit_user_registration_path, class: "dropdown-item" %></li>
+            <li><%= link_to"Profil",user_path(current_user.id), class: "dropdown-item" %></li>
             <li><%= link_to "Se deconnecter",destroy_user_session_path, :method => :delete, class: "dropdown-item" %></li>
           </div>
         </div>

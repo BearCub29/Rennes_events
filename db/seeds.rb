@@ -8,7 +8,6 @@
 
 require 'faker'
 
-#User.destroy_all
 
 05.times do
   User.create!(
@@ -16,18 +15,19 @@ require 'faker'
     last_name: Faker::Name.last_name,
     description: Faker::Lorem.sentence(word_count: rand(5..20)),
     email: Faker::Internet.email(domain: 'yopmail.com'),
-    encrypted_password: Faker::Internet.password(min_length: 8) 
+    password: "123456",
+    password_confirmation: "123456"
     )
 end
 05.times do
   Event.create!(
     start_date: Faker::Date.forward(days: 90), 
-    duration: Faker::Name.last_name,
-    title: Faker::Lorem.sentence(word_count: rand(5..20)),
-    description: Faker::Internet.email(domain: 'yopmail.com'),
-    price: Faker::Internet.password(min_length: 8), 
-    location:
-    user_id:
+    duration: Faker::Number.within(range: 1..10),
+    title: Faker::Hipster.sentence(word_count: 5),
+    description: Faker::Hipster.paragraph(sentence_count: 5),
+    price: Faker::Number.within(range: 2..999), 
+    location:Faker::Address.city,
+    user_id: User.all.sample.id
     )
 end
 puts "check"

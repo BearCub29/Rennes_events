@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <title>Edit Prodil de <%= current_user.first_name %></title>
+  </head>
+  <body>
+  <div class="card-header text-center">
+  Edit Prodil de <%= current_user.first_name %>
+  </div>
+   </br>
+   <%= form_for current_user,url: user_path  do |f| %>
+    <div class="d-flex justify-content-around text-center">
+      <div class="card " style="width: 18rem;">
+        <div class="card-body">
+          <p class="card-text">Prénom <%= f.text_field :first_name , class: 'form-control' %> </p>
+          <p class="card-text">Nom <%= f.text_field :last_name , class: 'form-control' %> </p>
+          <p class="card-text">Description <%= f.text_field :description , class: 'form-control' %> </p>
+          <hr class="my-4">
+          <button type="submit", class="btn-primary" > Editer le Profil </button>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  </br>
+  </body>
+</html>
