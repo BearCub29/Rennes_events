@@ -19,5 +19,15 @@ require 'faker'
     encrypted_password: Faker::Internet.password(min_length: 8) 
     )
 end
-
+05.times do
+  Event.create!(
+    start_date: Faker::Date.forward(days: 90), 
+    duration: Faker::Name.last_name,
+    title: Faker::Lorem.sentence(word_count: rand(5..20)),
+    description: Faker::Internet.email(domain: 'yopmail.com'),
+    price: Faker::Internet.password(min_length: 8), 
+    location:
+    user_id:
+    )
+end
 puts "check"
