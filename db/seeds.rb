@@ -9,6 +9,7 @@
 require 'faker'
 
 
+
 05.times do
   User.create!(
     first_name: Faker::Name.first_name, 
