@@ -1,1 +1,47 @@
-<h1> new attendance </h1>
+
+<html>
+<head>
+    <title>Participation à l Event : <%= Event.find(params[:event_id]).title %> </title>
+  </head>
+  <body>
+    <div class="card-header text-center">
+      <h3>Participation à l Event : <%= Event.find(params[:event_id]).title %> </h3>
+    </div>
+    </br>
+    <div class="d-flex justify-content-around text-center">
+      <div class="card " style="width: 18rem;">
+        <div class="card-body">
+          <p class="card-text">Description : <%= Event.find(params[:event_id]).title %></p>
+          <p class="card-text">Date  : <%= Event.find(params[:event_id]).title %></p>
+          <p class="card-text">Durée : <%= Event.find(params[:event_id]).title %></p>
+          <hr class="my-4">
+        </div>
+      </div>
+    </div>
+  </br>
+  <%= form_tag new_event_attendance_path do %>
+    <div class="d-flex justify-content-around text-center">
+          <div class="card " style="width: 18rem;">
+            <div class="card-body">
+            <article>
+            <% if flash[:error].present? %>
+              <div id="error_explanation">
+                <p><%= flash[:error] %></p>
+              </div>
+            <% end %>
+            <label class="amount">
+              <span> Montant Participation: <%= @amount %> € </span>
+            </label>
+          </article>
+          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                  data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                  data-description="Participation à l'êvenement"
+                  data-amount= <%= @amount * 100 %>
+                  data-locale="auto"></script>
+            </div>
+          </div>
+        </div>
+  <% end %>
+  </body>
+</html>
+
