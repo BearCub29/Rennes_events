@@ -22,6 +22,9 @@
       <p class="card-text">Date de fin :  </p>
       <p class="card-text">Localisation : <%= Event.find(params[:id]).location %> </p>
       <p class="card-text">Prix : <%=Event.find(params[:id]).price %> € </p>
+      <% if current_user.id != Event.find(params[:id]).user_id %>
+      <%= link_to"Participer à l'evenement", new_attendance_path, class: "btn btn-warning btn-lg" %>
+      <% end %>
     </div>
   </div>
 </div>
