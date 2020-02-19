@@ -30,13 +30,13 @@
               </div>
             <% end %>
             <label class="amount">
-              <span> Montant Participation: <%= @amount %> € </span>
+              <span> Montant Participation: <%= @amount/100 %> € </span>
             </label>
           </article>
           <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                   data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
                   data-description="Participation à l'êvenement"
-                  data-amount= <%= @amount * 100 %>
+                  data-amount= <%= @amount  %>
                   data-locale="auto"></script>
             </div>
           </div>
