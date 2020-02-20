@@ -4,7 +4,7 @@ class EventsController < ApplicationController
     @events = Event.all
   end
   def new
-  
+    @event = Event.new
   end
   def create
     @event = Event.new(start_date: params[:start_date], duration: params[:duration],description: params[:description],title: params[:title],price: params[:price],location: params[:location],user_id: current_user.id)    # avec xxx qui sont les données obtenues à partir du formulaire
@@ -16,7 +16,7 @@ class EventsController < ApplicationController
   end
 
   def show
-    
+    @event = Event.find(params[:id])
     
   end
 

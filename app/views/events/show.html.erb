@@ -1,27 +1,41 @@
 <html>
   <head>
-    <title>Events : <%= Event.find(params[:id]).title%></title>
+    <title>Events : <%= @event.title%></title>
   </head>
   <body>
   <div class="card-header text-center">
-  <h3>Events : <%= Event.find(params[:id]).title %></h3>
+  <h3>Events : <%= @event.title %></h3>
   </div>
   </br>
 <div class="d-flex justify-content-around text-center">
   <div class="card " style="width: 18rem;">
     <div class="card-body">
-      <p class="card-text">Events N° : <%= Event.find(params[:id]).id %> </p>
-      <p class="card-text">Description : <%= Event.find(params[:id]).description %> </p>
+      <p class="card-text">Events N° : <%= @event.id %> </p>
+      <p class="card-text">Description : <%= @event.description %> </p>
       <hr class="my-4">
-      <p class="card-text">Nombre d inscrit :  </p>
-      <hr class="my-4">
-      <p class="card-text">Créateur de l Event : <%= User.find(Event.find(params[:id]).user_id).first_name %> </p>
-      <hr class="my-4">
-      <p class="card-text">Date de début : <%= Event.find(params[:id]).start_date%> </p>
-      <p class="card-text">Date de fin :  </p>
-      <p class="card-text">Localisation : <%= Event.find(params[:id]).location %> </p>
-      <p class="card-text">Prix : <%=Event.find(params[:id]).price %> € </p>
-      <% if current_user.id != Event.find(params[:id]).user_id %>
+      <p class="card-text">Date de début : <%= @event.start_date.strftime("%d/%m/%Y à %H:%M")%> </p>
+      <p class="card-text">Date de fin : <%= @event.end_date.strftime("%d/%m/%Y à %H:%M") %>  </p>
+      <p class="card-text">Localisation : <%= @event.location %> </p>
+      <p class="card-text">Nombre d inscrit : <%= @event.attendances.count %> </p>
+      <p class="card-text">Prix : <%=@event.price %> € </p>
+    </div>
+  </div>
+</div>
+</br>
+<div class="d-flex justify-content-around text-center">
+  <div class="card " style="width: 18rem;">
+    <div class="card-body">
+    <p class="card-text">Créateur de l Event : <%= User.find(@event.user_id).first_name %> </p>
+    <p class="card-text">Description : <%= User.find(@event.user_id).description %> </p>
+    <%= link_to"Profil", user_path(@event.user_id), class: "btn btn-dark btn-lg" %>
+    </div>
+  </div>
+</div>
+</br>
+<div class="d-flex justify-content-around text-center">
+  <div class="card " style="width: 18rem;">
+    <div class="card-body">
+    <% if current_user.id != @event.user_id %>
       <%= link_to"Participer à l'evenement", new_event_attendance_path(params[:id]), class: "btn btn-warning btn-lg" %>
       <% end %>
     </div>

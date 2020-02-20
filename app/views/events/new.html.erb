@@ -1,4 +1,16 @@
 <html>
+<% if @event.errors.any? %>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <ul>
+        <% @event.errors.full_messages.each do |m| %>
+          <li><%= m %></li>
+        <% end %>
+      </ul>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  <% end %>
 </br>
 <h1 class="text-center"> Création Event </h1>
 </br>
@@ -8,10 +20,10 @@
             <div class="card-body">
               <p class="card-text">Titre Event (min:5) <%= text_field_tag 'title' %> </p>
               <p class="card-text">Description (min:20)<%= text_field_tag 'description' %> </p>
-              <p class="card-text">Prix (min:1€) <%= text_area_tag 'price' %> </p>
+              <p class="card-text">Prix (min:1€) <%= number_field_tag 'price' %> </p>
               <p class="card-text"> Ville <%= text_field_tag 'location' %> </p>
-              <p class="card-text"> Date de départ <%= text_field_tag 'start_date' %> </p>
-              <p class="card-text"> Durée <%= text_field_tag 'duration' %> </p>
+              <p class="card-text"> Date de départ <%= date_field_tag 'start_date' %> </p>
+              <p class="card-text"> Durée (en min) <%= number_field_tag 'duration' %> </p>
               <hr class="my-4">
               <%= submit_tag "Créer Event" %>
             </div>
