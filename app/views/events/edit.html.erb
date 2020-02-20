@@ -1,13 +1,29 @@
-<html>
-  <head>
-    <title>Edit Event  <%= Event.find(params[:id]).title %></title>
+<head>
+    <title>Edit Event N°<%= params["id"] %></title>
   </head>
   <body>
-  <div class="card-header text-center">
-  Edit Event <%= Event.find(params[:id]).title %>
+<div class="card-header text-center">
+Edit Event N°<%= params["id"] %>
   </div>
    </br>
-   
-  </br>
+   <%= form_for @event do |f| %>
+    <div class="d-flex justify-content-around text-center">
+      <div class="card " style="width: 18rem;">
+        <div class="card-body">
+          <p class="card-text">Date de début <%= f.date_field :start_date, class: 'form-control' %></p>
+          <p class="card-text">Durée (en min) <%= f.number_field :duration , class: 'form-control' %></p>
+          <p class="card-text">Titre (min 5)<%= f.text_field :title , class: 'form-control' %></p>
+          <p class="card-text">Description (min 20) <%= f.text_area :description , class: 'form-control' %></p>
+          <p class="card-text">Prix (min 1)<%= f.number_field :price , class: 'form-control' %></p>
+          <p class="card-text">Location <%= f.text_field :location , class: 'form-control' %></p>
+          <hr class="my-4">
+          <button type="submit", class="btn btn-primary btn-lg btn-block" > Editer l Event</button>
+          <hr class="my-4">
+          <a href="<%= event_path( params[:id]) %>" class="btn btn-danger btn-lg btn-block" data-confirm="Etes vous sur ?" data-method="delete">Supprimer Event</a>
+        </div>
+      </div>
+    </div>
+  <% end %>
+ 
   </body>
 </html>
