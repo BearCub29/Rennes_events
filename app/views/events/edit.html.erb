@@ -2,6 +2,18 @@
     <title>Edit Event N°<%= params["id"] %></title>
   </head>
   <body>
+  <% if @event.errors.any? %>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <ul>
+        <% @event.errors.full_messages.each do |m| %>
+          <li><%= m %></li>
+        <% end %>
+      </ul>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  <% end %>
 <div class="card-header text-center">
 Edit Event N°<%= params["id"] %>
   </div>
