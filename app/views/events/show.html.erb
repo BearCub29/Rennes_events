@@ -35,9 +35,18 @@
 <div class="d-flex justify-content-around text-center">
   <div class="card " style="width: 18rem;">
     <div class="card-body">
-    <% if current_user.id != @event.user_id %>
-      <%= link_to"Participer à l'evenement", new_event_attendance_path(params[:id]), class: "btn btn-warning btn-lg" %>
+    <% if current_user %>
+      <% if Attendance.find_by(event_id: @event.id) == Attendance.find_by(user_id: current_user.id) %>
+        <p class="card-text"> Vous êtes inscrit à l Event,enjoy!!! </p>
+      <% else %>
+        <%= link_to"Participer à l'evenement", new_event_attendance_path(params[:id]), class: "btn btn-warning btn-lg" %>
       <% end %>
+    <% else %>
+      <p class="card-text"> Pour participer à l Event : </p>
+      <%= link_to"S'inscrire", new_user_registration_path, class: "btn btn-secondary btn-lg" %>
+      <p class="card-text"> ou </p>
+      <%= link_to"Se connecter", new_user_session_path, class: "btn btn-secondary btn-lg" %>
+    <% end %>
     </div>
   </div>
 </div>
