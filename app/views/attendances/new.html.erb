@@ -11,9 +11,9 @@
     <div class="d-flex justify-content-around text-center">
       <div class="card " style="width: 18rem;">
         <div class="card-body">
-          <p class="card-text">Description : <%= Event.find(params[:event_id]).title %></p>
-          <p class="card-text">Date  : <%= Event.find(params[:event_id]).title %></p>
-          <p class="card-text">Durée : <%= Event.find(params[:event_id]).title %></p>
+          <p class="card-text">Description : <%= Event.find(params[:event_id]).description %></p>
+          <p class="card-text">Date  : <%= Event.find(params[:event_id]).start_date.strftime("%d/%m/%Y à %H:%M") %></p>
+          <p class="card-text">Durée : <%= Event.find(params[:event_id]).duration %> mins </p>
           <hr class="my-4">
         </div>
       </div>
