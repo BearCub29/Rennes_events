@@ -1,7 +1,8 @@
 class AttendancesController < ApplicationController
   #before_action :authenticate_user, only: [:show]
   def index
-
+    @attendances = Attendance.all
+    @events = Event.all
   end
   def new
     @amount = (Event.find(params[:event_id]).price)*100

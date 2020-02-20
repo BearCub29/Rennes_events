@@ -1,1 +1,34 @@
-<h1> attendance index </h1>
+<html>
+  <head>
+    <title> Participants à l Event <% @events.find(params[:event_id]).title %> </title>
+  </head>
+
+  <body>
+  <div class="card-header text-center">
+  <h3>Participants à l Event : <%= @events.find(params[:event_id]).title %> </h3>
+  </div>
+      <div class="album py-5 bg-light">
+        <div class="container">
+          <div class="row">
+          <% @attendances.each do |attendance| %>
+            <% if attendance.event_id == params[:event_id] %>
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+              <%= image_tag "bandeau.png", class: "card-img-top", alt: "Card image cap" %>
+                <div class="card-body">
+                  <p class="card-text">Prénom participant : <%=User.find(attendance.user_id).first_name%> </p>
+                  <p class="card-text">Nom participant : <%=User.find(attendance.user_id).last_name%> </p>
+                  <p class="card-text">Description : <%=User.find(attendance.user_id).description%> </p>
+                  <p class="card-text">Email : <%=User.find(attendance.user_id).email%> </p>
+                  <p class="card-text">Date d inscription : <%=attendance.created_at%> </p>   
+                </div>
+              </div>
+            </div>
+            <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      
+  </body>
+</html>
