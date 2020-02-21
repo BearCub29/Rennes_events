@@ -15,13 +15,15 @@
   <%end%>
   </div>
   </br>
+  <% if current_user && @event.user_id == current_user.id %>
   <div class="card-header text-center">
     <h5>Changer bandeau ?</h5>
     <%= form_tag event_events_picture_index_path(@event), multipart: true do %>
     <%= file_field_tag :event_picture %>
-    <%= submit_tag "mettre à jour" %>
+    <button type="submit", class="btn btn-success btn-lg" > Mettre à jour</button>
     <% end %>
   </div>
+  <% end %>
   </br>
 <div class="d-flex card-header justify-content-around text-center">
   <div class="card " style="width: 18rem;">
@@ -43,7 +45,7 @@
     <div class="card-body">
     <p class="card-text">Créateur de l Event : <%= User.find(@event.user_id).first_name %> </p>
     <p class="card-text">Description : <%= User.find(@event.user_id).description %> </p>
-    <%= link_to"Profil", user_path(@event.user_id), class: "btn btn-dark btn-lg" %>
+    <%= link_to"Profil", user_path(@id = User.find(@event.user_id).id), class: "btn btn-dark btn-lg" %>
     </div>
   </div>
 </div>

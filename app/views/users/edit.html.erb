@@ -4,8 +4,24 @@
   </head>
   <body>
   <div class="card-header text-center">
-  Edit Prodil de <%= current_user.first_name %>
+  <h3> Edit Profil de <%= current_user.first_name %> </h3>
   </div>
+   </br>
+   <div class="card-header text-center">
+   <%if @user.avatar.attached?%>
+   <%= image_tag @user.avatar, alt: 'avatar' %>
+ <%else%>
+   <p>=== Il n'y a pas encore d'avatar lié à cet utilisateur ===</p>
+ <%end%>
+  </div>
+  </br>
+  <div class="card-header text-center">
+        <h3>Changer d avatar ?</h3>
+        <%= form_tag user_avatars_path(@user), multipart: true do %>
+          <%= file_field_tag :avatar %>
+          <button type="submit", class="btn btn-success btn-lg" > Mettre à jour</button>
+        <% end %>
+  </div>      
    </br>
    <%= form_for current_user,url: user_path  do |f| %>
     <div class="d-flex justify-content-around text-center">
@@ -15,11 +31,12 @@
           <p class="card-text">Nom <%= f.text_field :last_name , class: 'form-control' %> </p>
           <p class="card-text">Description <%= f.text_field :description , class: 'form-control' %> </p>
           <hr class="my-4">
-          <button type="submit", class="btn-primary" > Editer le Profil </button>
+          <button type="submit", class="btn btn-primary btn-lg" > Editer le Profil </button>
         </div>
       </div>
     </div>
   <% end %>
   </br>
+  
   </body>
 </html>

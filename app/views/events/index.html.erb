@@ -21,7 +21,11 @@
           <% @events.each do |event| %>
             <div class="col-md-4">
               <div class="card mb-4 box-shadow">
-              <%= image_tag "bandeau.png", class: "card-img-top", alt: "Card image cap" %>
+              <%if event.event_picture.attached?%>
+                <%= image_tag event.event_picture, class: "card-img-top", alt: 'event_picture' %>
+              <%else%>
+                <%= image_tag "bandeau.png", class: "card-img-top", alt: "Card image cap" %>
+              <%end%>
                 <div class="card-body">
                   <p class="card-text">Nom de lEvent : <%=event.title%> </p>
                     <div class="d-flex justify-content-between align-items-center">

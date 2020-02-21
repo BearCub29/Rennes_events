@@ -2,9 +2,10 @@ class UsersController < ApplicationController
   before_action :authenticate_user, only: [:show]
   def show
     @events = Event.all
+    @user = User.find(params[:id])
   end
   def edit
-    
+    @user = User.find(params[:id])
   end
   def update
       @user = current_user
