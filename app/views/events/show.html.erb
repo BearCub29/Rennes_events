@@ -7,7 +7,23 @@
   <h3>Events : <%= @event.title %></h3>
   </div>
   </br>
-<div class="d-flex justify-content-around text-center">
+  <div class="card-header text-center">
+  <%if @event.event_picture.attached?%>
+    <%= image_tag @event.event_picture, alt: 'event_picture' %>
+  <%else%>
+  <p>=== Il n y a pas encore de bandeau lié à cet utilisateur ===</p>
+  <%end%>
+  </div>
+  </br>
+  <div class="card-header text-center">
+    <h5>Changer bandeau ?</h5>
+    <%= form_tag event_events_picture_index_path(@event), multipart: true do %>
+    <%= file_field_tag :event_picture %>
+    <%= submit_tag "mettre à jour" %>
+    <% end %>
+  </div>
+  </br>
+<div class="d-flex card-header justify-content-around text-center">
   <div class="card " style="width: 18rem;">
     <div class="card-body">
       <p class="card-text">Events N° : <%= @event.id %> </p>
@@ -22,7 +38,7 @@
   </div>
 </div>
 </br>
-<div class="d-flex justify-content-around text-center">
+<div class="d-flex card-header justify-content-around text-center">
   <div class="card " style="width: 18rem;">
     <div class="card-body">
     <p class="card-text">Créateur de l Event : <%= User.find(@event.user_id).first_name %> </p>
@@ -32,7 +48,7 @@
   </div>
 </div>
 </br>
-<div class="d-flex justify-content-around text-center">
+<div class="d-flex card-header justify-content-around text-center">
   <div class="card " style="width: 18rem;">
     <div class="card-body">
     <% if current_user && @event.user_id != current_user.id && Attendance.find_by(event_id: @event.id) == nil  %>
