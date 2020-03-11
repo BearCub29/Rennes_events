@@ -1,0 +1,31 @@
+<div class="container" >
+  <div class="row justify-content-center" >
+    <div class="card text-center" >
+      </br>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"> 
+            <h4>Bienvenue</h4></li>
+          <li class="list-group-item">
+          <%= image_tag "logo.png", width: 100, height: 100,  alt: "Trail Events"  %></li>
+        </ul>
+      </div>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"> 
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", value: "Email" %>
+          <li class="list-group-item">
+          <%= f.password_field :password, autocomplete: "current-password", value: "Password", class: "spe-input" %>
+          <li class="list-group-item">
+          <%= f.submit "Log in",class: "btn btn-success btn-block btn-login" %></li>
+        </ul>
+      <% end %>
+      </br></br>
+      <div>
+        <a href="#" class="hover" >Créer un compte ?</a></br>
+        <a href="#" class="hover" >Mot de passe oublié ?</a>
+      </div>
+        </br>
+    </div>
+  </div>
+</div>

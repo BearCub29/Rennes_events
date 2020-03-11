@@ -1,0 +1,20 @@
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <% @events.each do |event| %>
+      <div class="card text-center" style="width: 18rem;" >
+        <%if event.event_picture.attached?%>
+          <%= image_tag event.event_picture, class: "card-img-top", alt: 'event_picture' %>
+        <%else%>
+          <%= image_tag "trail.jpg", class: "card-img-top", alt: "Card image cap" %>
+        <%end%>
+        <div class="card-body">
+          <h5 class="card-title">Nom Event : <%=event.title%> </h5>
+          <%= link_to"Go Event", event_path(@id = event.id), class: "btn btn-success btn-lg btn-block" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+

@@ -1,0 +1,198 @@
+*{
+
+  margin:0;
+  
+  padding:0;
+  
+  }
+
+
+body
+{
+  background-color: grey;
+  color: whitesmoke;
+}
+
+.container
+{
+  margin: auto;
+  
+}
+
+.navbar
+{
+  height: 70px;
+}
+ 
+.nav-brown
+{
+  background-color: #333333;
+}
+
+/*---------------footer------------------*/
+footer
+{
+ 
+  width: 100%;
+  
+}
+
+.page-footer
+{
+  background-color: #333333;
+  color: whitesmoke;
+  
+
+}
+
+a
+{
+ color: whitesmoke;
+}
+
+a:hover
+{
+  text-decoration-line: none;
+  color: #68ba45;
+}
+
+/*---------------login------------------*/
+.card-header , .card-footer
+{
+  background-color: #389059;
+  color: whitesmoke;
+  border-color: whitesmoke;
+  
+  
+  
+}
+
+.hover:hover
+{
+  text-decoration-line: none;
+  color: yellowgreen;
+}
+
+
+
+
+.card
+{
+  background-color: #333333;
+  color: whitesmoke;
+  margin: 10px;
+  padding: 10px;
+  
+  
+}
+
+
+
+input
+{
+  background-color: transparent;
+  border-color: whitesmoke;
+  border-style: solid;
+  border-width: 1px;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  color: whitesmoke;
+  
+}
+
+input:focus
+{
+  background-color: #68ba45;
+  color: whitesmoke;
+}
+.btn
+{
+  border-radius: 0.50em;
+}
+
+.btn-success
+{
+  background-color: #68ba45;
+}
+/*---------------banière------------------*/
+
+.jumbotron
+{
+  background-image: url("trail.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  color: whitesmoke;
+}
+
+hr
+{
+  background-color: whitesmoke;
+}
+
+.bold
+{
+  font-weight: bold;
+}
+
+/*---------------cards------------------*/
+
+
+.avatar
+{
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 50% !important;
+  height: 50px;
+  width: 50px;
+}
+
+.list-group-item
+{
+  background-color: transparent;
+}
+
+.yellow-star
+{
+  color: yellow;
+}
+
+textarea
+{
+  width: auto;
+  border-radius: 0.25em;
+}
+
+textarea:hover
+{
+  border-color: yellowgreen;
+}
+
+.card-img-top
+{
+  height: 270px;
+}
+
+.list-group-item
+{
+  font-size: large;
+  font-weight: bold;
+}
+
+.btn-login
+{
+  border-radius: 0.75rem;
+  background-color: #68ba45;
+}
+
+.list-group-item
+{
+  border-bottom: none;
+}
+
+.list-group-item:hover
+{
+  background-color: transparent;
+}

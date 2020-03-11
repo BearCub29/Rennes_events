@@ -5,41 +5,8 @@
   </head>
 
   <body>
-  <%= image_tag "bandeau.png", class: "d-block w-100", alt: "Rennes-Events" %>
-    <div class="jumbotron">
-      <h1 class="display-4">Rennes Events</h1>
-      <p class="lead">Venez créer,partager,diffuser tous les évenements disponibles sur Rennes!!!</p>
-      <hr class="my-4">
-      <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-      <p class="lead">
-        <%= link_to"Créer Events", new_event_path, class: "btn btn-secondary btn-lg " %>
-      </p>
-    </div>
-      <div class="album py-5 bg-light">
-        <div class="container">
-          <div class="row">
-          <% @events.each do |event| %>
-            <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-              <%if event.event_picture.attached?%>
-                <%= image_tag event.event_picture, class: "card-img-top", alt: 'event_picture' %>
-              <%else%>
-                <%= image_tag "bandeau.png", class: "card-img-top", alt: "Card image cap" %>
-              <%end%>
-                <div class="card-body">
-                  <p class="card-text">Nom de lEvent : <%=event.title%> </p>
-                    <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                    <%= link_to"Event", event_path(@id = event.id), class: "btn btn-secondary btn-lg btn-block" %>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <% end %>
-          </div>
-        </div>
-      </div>
+  <%= render "banniere" %> 
+    <%= render "list_event" %> 
       
   </body>
 </html>

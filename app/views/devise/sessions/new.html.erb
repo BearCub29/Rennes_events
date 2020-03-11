@@ -1,32 +1,11 @@
 <html>
   <body>
-  <div class="card-header text-center">
-  <h1 class="text-center"> Page de connexion </h1>
-  </div>
   </br>
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="d-flex justify-content-around text-center">
-          <div class="card " style="width: 18rem;">
-            <div class="card-body">
-            <%= f.label :email %>
-            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-            </div>
-            <div class="card-body">
-            <%= f.label :password %>
-            <%= f.password_field :password, autocomplete: "current-password" %>
-            </div>
-            <% if devise_mapping.rememberable? %>
-            <div class="card-body">
-            <%= f.check_box :remember_me %>
-            <%= f.label :remember_me %>
-            </div>
-            <% end %>
-            <div class="actions card-body">
-            <%= f.submit "Log in" %>
-            </div>
-          </div>
-    </div>  
-  <% end %>
-  <p class="text-center"><%= render "devise/shared/links" %></p>
+  </br>
+  <%= render "login" %> 
+  </br>
+  </br>
+  </br>
   </body>
+  
 </html>
